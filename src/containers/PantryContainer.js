@@ -1,13 +1,13 @@
 import React from 'react';
+import Pantry from '../components/Pantry'
 
-class PantryContainer extends React.Component {
-    render() {
-        return(
-            <div>
-                <h4>Pantry Container</h4>
-            </div>
-        )
-    }
+function PantryContainer(props) {
+    return(
+        <div>
+            <h4>Pantry Container</h4>
+            <Pantry addToPantry={props.addToPantry} />
+        </div>
+    )
 }
 
 export default PantryContainer;

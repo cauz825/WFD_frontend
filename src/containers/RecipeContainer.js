@@ -1,15 +1,12 @@
 import React from 'react';
-import RecipeSearch from '../components/RecipeSearch'
 
-class RecipeContainer extends React.Component {
-    render() {
-        return(
-            <div>
-                <h4>Recipe Container</h4>
-                <RecipeSearch />
-            </div>
-        )
-    }
+function RecipeContainer() {
+    return(
+        <div>
+            <h4>Recipe Container</h4>
+            <button>Search for Recipes</button>
+        </div>
+    )
 }
 
 export default RecipeContainer;

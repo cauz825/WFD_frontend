@@ -2,26 +2,37 @@ import React from 'react';
 import './App.css';
 import PantryContainer from './containers/PantryContainer';
 import RecipeContainer from './containers/RecipeContainer';
-
-const baseUrl = 'http://localhost:3000/users'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 class App extends React.Component {
 
-  componentDidMount() {
-    fetch(baseUrl)
-    .then(resp => resp.json())
-    .then(console.log)
+  constructor(){
+    super()
+    this.state = {
+      currentPantry: []
+    }
+  }
+
+  addToPantry(ingredient) {
+    console.log('button clicked')
   }
 
   render() {
     return (
-      <div>
-        <h1>NavBar</h1>
-        <h2>User Page</h2>
-        <PantryContainer />
-        <RecipeContainer />
-      </div>
-      
+      <BrowserRouter>
+        <div>
+          <h2>Home Page</h2>
+            <Route path="/pantry" 
+              render={() => 
+                <PantryContainer 
+                  currentPantry={this.state.currentPantry}
+                  addToPantry={this.addToPantry} 
+                />
+              } 
+            />
+            <Route path="/recipe" component={RecipeContainer} />
+        </div>  
+      </BrowserRouter>
     )
   }
 }
