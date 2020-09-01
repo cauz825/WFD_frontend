@@ -6,9 +6,7 @@ function Pantry(props) {
     return(
         <div>
             <ul>
-                <li>Test inventory 1</li>
-                <li>Test inventory 2</li>
-                <li>Test inventory 3</li>
+                {props.currentPantry.map(ing => <li>{ing}</li>)}
             </ul>
             <PantryForm addToPantry={props.addToPantry} />
         </div>

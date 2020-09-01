@@ -3,13 +3,16 @@ import './App.css';
 import PantryContainer from './containers/PantryContainer';
 import RecipeContainer from './containers/RecipeContainer';
 import {BrowserRouter, Route} from 'react-router-dom'
+import Login from './components/Login'
+import SignUp from './components/SignUp';
 
 class App extends React.Component {
 
   constructor(){
     super()
     this.state = {
-      currentPantry: []
+      currentPantry: [],
+      loggedIn: false
     }
   }
 
@@ -22,6 +25,8 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <h2>Home Page</h2>
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={SignUp} />
             <Route path="/pantry" 
               render={() => 
                 <PantryContainer 

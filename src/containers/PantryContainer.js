@@ -5,7 +5,9 @@ function PantryContainer(props) {
     return(
         <div>
             <h4>Pantry Container</h4>
-            <Pantry addToPantry={props.addToPantry} />
+            <Pantry 
+                currentPantry={props.currentPantry}
+                addToPantry={props.addToPantry} />
         </div>
     )
 }
