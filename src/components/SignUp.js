@@ -2,14 +2,12 @@ import React from 'react'
 
 function SignUp() {
     
-    
-    
-    
+   
     return(
         <form onSubmit={(e) => this.signUp(e)}>
-            <input onChange={(e) => this.handleChange(e)} type="text" placeholder="Username" />
-            <input onChange={(e) => this.handleChange(e)} type="password" placeholder="Password" />
-            <button type="Signup">Sign Up</button>
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <button type="Submit">Sign Up</button>
         </form>
     )
 }
