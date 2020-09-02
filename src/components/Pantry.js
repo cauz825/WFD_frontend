@@ -14,6 +14,8 @@ function Pantry(props) {
 
     function filterData(data) {
         let filteredData = data.filter(Ingr => Ingr.user_id === parseInt(localStorage.user_id))
+        setUserIngredients(filteredData)
+        console.log({userIngredients})
     }
     
     return(

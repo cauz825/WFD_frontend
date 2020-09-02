@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <h2>Home Page</h2>
+          <h3>NavBar (placeholder)</h3>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
             <Route path="/pantry" 
