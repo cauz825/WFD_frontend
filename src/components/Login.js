@@ -24,7 +24,14 @@ function Login() {
             })
         })
         .then(resp => resp.json())
-        .then(console.log)
+        .then(data => setLocalStorage(data))
+    }
+
+    function setLocalStorage(data) {
+        localStorage.token = data.token
+        localStorage.user_id = data.user.id
+        localStorage.username = data.user.username
+        window.location = '/pantry'
     }
 
     return(
