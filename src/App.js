@@ -5,6 +5,7 @@ import RecipeContainer from './containers/RecipeContainer';
 import {BrowserRouter, Route} from 'react-router-dom'
 import Login from './components/Login'
 import SignUp from './components/SignUp';
+import HomePage from './components/HomePage';
 
 class App extends React.Component {
 
@@ -21,6 +22,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <h3>NavBar (placeholder)</h3>
+          <HomePage />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
             <Route path="/pantry" component ={PantryContainer} />

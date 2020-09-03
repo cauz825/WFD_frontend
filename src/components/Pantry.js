@@ -9,19 +9,21 @@ function Pantry(props) {
     useEffect(initialPull, [])
     
     function initialPull() {
-        fetch("http://localhost:3000/users")
+        fetch(`http://localhost:3000/users/${localStorage.user_id}`)
         .then(resp => resp.json())
-        .then(data => filterData(data))
-    }
+        .then(userData => 
+            {console.log(userData)
+            setUserPantry(userData.user_ingredients)})
 
-    function filterData(data) {
-        let userData = data.filter(User => User.id === parseInt(localStorage.user_id))
-        let userPantry = userData[0].ingredients
-        setUserPantry(userPantry)
+        console.log("anything")
     }
 
     function deleteIngredient(e) {
-        console.log(e.target.className)
+        fetch(`http://localhost:3000/user_ingredients/${e.target.className}`, {
+            method:"DELETE"
+        })
+        .then (resp => resp.json())
+        .then(data => {initialPull()})
     }
     
     return(
@@ -29,7 +31,7 @@ function Pantry(props) {
             <ul>
                 {userPantry.map(ingr => 
                     <li>
-                        {ingr.name}<button 
+                        {ingr.ingredient.name}<button 
                             onClick={deleteIngredient} 
                             className={ingr.id}>x</button>
                     </li>)}

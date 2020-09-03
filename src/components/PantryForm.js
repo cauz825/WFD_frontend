@@ -18,19 +18,6 @@ function PantryForm(props) {
             })
         })
         .then(resp => resp.json())
-        .then(data => createLink(data))
-    }
-
-    function createLink(data) {
-        fetch("http://localhost:3000/user_ingredients", {
-            method: "POST",
-            headers: {"Content-Type":"application/json"},
-            body: JSON.stringify({
-                user_id: localStorage.user_id,
-                ingredient_id: data.id
-            })
-        })
-        .then(resp => resp.json())
         .then(data => props.rePull(data))
     }
 
