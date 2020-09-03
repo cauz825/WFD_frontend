@@ -19,13 +19,23 @@ function Pantry(props) {
         let userPantry = userData[0].ingredients
         setUserPantry(userPantry)
     }
+
+    function deleteIngredient(e) {
+        console.log(e.target.className)
+    }
     
     return(
         <div>
             <ul>
-                {userPantry.map(ingr => <li>{ingr.name}</li>)}
+                {userPantry.map(ingr => 
+                    <li>
+                        {ingr.name}<button 
+                            onClick={deleteIngredient} 
+                            className={ingr.id}>x</button>
+                    </li>)}
             </ul>
             <PantryForm rePull={initialPull}/>
+            <button>Search For Recipes</button>
         </div>
     )
 }
