@@ -27,14 +27,7 @@ class App extends React.Component {
           <h3>NavBar (placeholder)</h3>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/pantry" 
-              render={() => 
-                <PantryContainer 
-                  currentPantry={this.state.currentPantry}
-                  addToPantry={this.addToPantry} 
-                />
-              } 
-            />
+            <Route path="/pantry" component ={PantryContainer} />
             <Route path="/recipe" component={RecipeContainer} />
         </div>  
       </BrowserRouter>

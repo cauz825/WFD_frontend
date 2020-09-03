@@ -4,27 +4,27 @@ import PantryForm from '../components/PantryForm'
 
 function Pantry(props) {
 
-    const [userIngredients, setUserIngredients] = useState([])
+    const [userPantry, setUserPantry] = useState([])
     
+    // run initialPull() on render (useEffect?)
     function initialPull() {
-        fetch("http://localhost:3000/user_ingredients")
+        fetch("http://localhost:3000/users")
         .then(resp => resp.json())
         .then(data => filterData(data))
     }
 
     function filterData(data) {
-        let filteredData = data.filter(Ingr => Ingr.user_id === parseInt(localStorage.user_id))
-        setUserIngredients(filteredData)
-        console.log({userIngredients})
+        let userData = data.filter(User => User.id === parseInt(localStorage.user_id))
+        let userPantry = userData[0].ingredients
+        setUserPantry(userPantry)
     }
     
     return(
         <div>
             <ul>
-                {props.currentPantry.map(ing => <li>{ing}</li>)}
+                {userPantry.map(ingr => <li>{ingr.name}</li>)}
             </ul>
-            <PantryForm addToPantry={props.addToPantry} />
-            <button onClick={initialPull}>Show User's Ingredients</button>
+            <PantryForm />
         </div>
     )
 }
