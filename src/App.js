@@ -16,10 +16,6 @@ class App extends React.Component {
     }
   }
 
-  addToPantry(ingredient) {
-    console.log('button clicked')
-  }
-
   render() {
     return (
       <BrowserRouter>

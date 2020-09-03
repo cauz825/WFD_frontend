@@ -28,10 +28,13 @@ function Login() {
     }
 
     function setLocalStorage(data) {
-        localStorage.token = data.token
-        localStorage.user_id = data.user.id
-        localStorage.username = data.user.username
-        window.location = '/pantry'
+        if(data.error)
+            return(data.error)
+        else
+            localStorage.token = data.token
+            localStorage.user_id = data.user.id
+            localStorage.username = data.user.username
+            window.location = '/pantry'
     }
 
     return(

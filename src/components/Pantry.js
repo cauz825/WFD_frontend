@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PantryForm from '../components/PantryForm'
 
 
 function Pantry(props) {
 
     const [userPantry, setUserPantry] = useState([])
+
+    useEffect(initialPull, [])
     
-    // run initialPull() on render (useEffect?)
     function initialPull() {
         fetch("http://localhost:3000/users")
         .then(resp => resp.json())
@@ -24,7 +25,7 @@ function Pantry(props) {
             <ul>
                 {userPantry.map(ingr => <li>{ingr.name}</li>)}
             </ul>
-            <PantryForm />
+            <PantryForm rePull={initialPull}/>
         </div>
     )
 }
