@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import PantryForm from '../components/PantryForm'
 
 
-function Pantry(props) {
+function Pantry() {
 
     const [userPantry, setUserPantry] = useState([])
 
@@ -11,11 +11,7 @@ function Pantry(props) {
     function initialPull() {
         fetch(`http://localhost:3000/users/${localStorage.user_id}`)
         .then(resp => resp.json())
-        .then(userData => 
-            {console.log(userData)
-            setUserPantry(userData.user_ingredients)})
-
-        console.log("anything")
+        .then(userData => setUserPantry(userData.user_ingredients))
     }
 
     function deleteIngredient(e) {
