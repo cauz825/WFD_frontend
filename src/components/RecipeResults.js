@@ -11,7 +11,7 @@ function recipeResults() {
             })
         })
         .then(resp => resp.json())
-        .then(console.log)
+        .then(data => console.log(data))
     }
     
     return(
