@@ -6,6 +6,8 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import Login from './components/Login'
 import SignUp from './components/SignUp';
 import HomePage from './components/HomePage';
+import 'semantic-ui-css/semantic.min.css';
+
 
 class App extends React.Component {
 

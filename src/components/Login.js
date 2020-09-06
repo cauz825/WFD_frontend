@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+
 
 function Login() {
     
@@ -39,11 +41,21 @@ function Login() {
 
     return(
         <div>
-            <form>
-                <input onChange={handleUsername} type="text" placeholder="Username" />
-                <input onChange={handlePassword} type="password" placeholder="Password" />
-                <button onClick={logIn} type="Login">Login</button>
-            </form>
+            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <Form size='large'>
+                        <Segment>
+                            <Header>Log Into Your Account</Header>
+                                <input onChange={handleUsername} type="text" placeholder="Username" />
+                                <input onChange={handlePassword} type="password" placeholder="Password" />
+                            <Button onClick={logIn} type="Login">Login</Button>
+                        </Segment>
+                    </Form>
+                    <Message>
+                        New to WFD? <a href='/signup'>Sign Up</a>
+                    </Message>
+                </Grid.Column>
+            </Grid>
         </div>
     )
 }
