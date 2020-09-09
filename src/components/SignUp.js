@@ -1,12 +1,19 @@
 import React from 'react'
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import SteakImage from '../images/steak_platter.jpg'
+
 
 
 function SignUp() {
-    
+
+    const homePageStyle = {
+        // width: "100%",
+        // height: "600px",
+        backgroundImage: `url(${SteakImage})`
+    }
    
     return(
-        <div>
+        <div style={homePageStyle}>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Form size='large'>

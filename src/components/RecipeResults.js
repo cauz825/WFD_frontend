@@ -32,6 +32,7 @@ function RecipeResults() {
                     {recipeResults ? recipeResults.map(recipe => 
                         <li className={recipe.id}>
                             <h4>{recipe.title}</h4>
+                            <img src={recipe.image} alt=""></img>
                             <p>Used Ingredients: {recipe.usedIngredientCount}</p>
                             <p>Missing Ingredients: {recipe.missedIngredientCount}
                                 <ul>

@@ -52,5 +52,4 @@ function RecipeModal(props) {
     )
 
 }
-
 export default RecipeModal;
