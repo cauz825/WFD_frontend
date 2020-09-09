@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Button, Form } from 'semantic-ui-react'
 
 function PantryForm(props) {
 
@@ -27,10 +28,11 @@ function PantryForm(props) {
     }
     
     return(
-        <form onSubmit={afterSubmit}>
-            <input onChange={handleIngredientName} type="text" placeholder="Add Ingredient" />
-            <button onClick={newIngredient} type="Submit">Add to Inventory</button>
-        </form>
+        <Form onSubmit={afterSubmit}>
+            <input onChange={handleIngredientName} type="text" placeholder="Ingredient Name" />
+            <Button onClick={newIngredient} type="Submit">Add to Inventory</Button>
+            <a href='/recipe'><Button>Search For Recipes</Button></a>
+        </Form>
     )
 }
 

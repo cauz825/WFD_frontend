@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import SteakImage from '../images/steak_platter.jpg'
+import '../App.css';
 
 
 

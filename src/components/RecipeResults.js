@@ -17,7 +17,7 @@ function RecipeResults() {
             })
         })
         .then(resp => resp.json())
-        .then(data => setRecipeResults(data.response))
+        .then(data => setRecipeResults(data))
     }
 
     function openModal(id) {
@@ -33,8 +33,8 @@ function RecipeResults() {
                         <li className={recipe.id}>
                             <h4>{recipe.title}</h4>
                             <img src={recipe.image} alt=""></img>
-                            <p>Used Ingredients: {recipe.usedIngredientCount}</p>
-                            <p>Missing Ingredients: {recipe.missedIngredientCount}
+                            <p>Used Ingredients: {recipe.usedIngredientCount}<br></br>
+                            Missing Ingredients: {recipe.missedIngredientCount}
                                 <ul>
                                     {recipe.missedIngredients.map(ingr => <li>{ingr.name}</li>)}
                                 </ul>
@@ -46,8 +46,7 @@ function RecipeResults() {
                 </ul>
             </div>
             <Button onClick={searchReceipes}>Search for Recipes</Button>
-            <Button>Back To Pantry</Button>
-
+            <a href='/pantry'><Button>Back To Pantry</Button></a>
         </div>
     )
 }

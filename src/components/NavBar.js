@@ -5,7 +5,9 @@ export default class NavBar extends Component {
     render() {
             return(
                 <Menu inverted>
-                    <Menu.Item header>What's For Dinner</Menu.Item>
+                    <a href='/'>
+                        <Menu.Item header>What's For Dinner</Menu.Item>
+                    </a>
                     <a href="/pantry">
                         <Menu.Item className="pantry" name="Pantry">
                         </Menu.Item>

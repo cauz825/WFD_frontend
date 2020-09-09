@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PantryForm from '../components/PantryForm';
+import { Button, List, Grid, Header } from 'semantic-ui-react'
 
 
 function Pantry() {
@@ -23,20 +24,25 @@ function Pantry() {
     }
     
     return(
-        // <Container>
             <div>
-                <ul>
-                    {userPantry.map(ingr => 
-                        <li>
-                            {ingr.ingredient.name}<button 
-                                onClick={deleteIngredient} 
-                                className={ingr.id}>x</button>
-                        </li>)}
-                </ul>
-                <PantryForm rePull={initialPull}/>
-                <button>Search For Recipes</button>
+                <Grid columns={2} divided>
+                    <Grid.Column>
+                        <Header as='h2'>Current Pantry</Header>
+                        <List>
+                            {userPantry.map(ingr => 
+                                <List.Item>
+                                    {ingr.ingredient.name}<button 
+                                        onClick={deleteIngredient} 
+                                        className={ingr.id}>x</button>
+                                </List.Item>)}
+                        </List>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Header as='h2'>Add Ingredients</Header>
+                        <PantryForm rePull={initialPull}/>
+                    </Grid.Column>
+                </Grid>
             </div>
-        // </Container>
     )
 }
 
