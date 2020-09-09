@@ -29,7 +29,7 @@ function RecipeResults() {
         <div>
             <div>
                 <ul>
-                    {recipeResults.map(recipe => 
+                    {recipeResults ? recipeResults.map(recipe => 
                         <li className={recipe.id}>
                             <h4>{recipe.title}</h4>
                             <p>Used Ingredients: {recipe.usedIngredientCount}</p>
@@ -39,7 +39,7 @@ function RecipeResults() {
                                 </ul>
                             <Button onClick={() => openModal(recipe.id)}>Show Recipe</Button>
                             </p>
-                        </li>)}
+                        </li>) : null}
                     <br></br>
                         <RecipeModal open={open} recipe_id={recipe_id} />
                 </ul>

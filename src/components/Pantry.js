@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import PantryForm from '../components/PantryForm'
+import PantryForm from '../components/PantryForm';
 
 
 function Pantry() {
@@ -23,18 +23,20 @@ function Pantry() {
     }
     
     return(
-        <div>
-            <ul>
-                {userPantry.map(ingr => 
-                    <li>
-                        {ingr.ingredient.name}<button 
-                            onClick={deleteIngredient} 
-                            className={ingr.id}>x</button>
-                    </li>)}
-            </ul>
-            <PantryForm rePull={initialPull}/>
-            <button>Search For Recipes</button>
-        </div>
+        // <Container>
+            <div>
+                <ul>
+                    {userPantry.map(ingr => 
+                        <li>
+                            {ingr.ingredient.name}<button 
+                                onClick={deleteIngredient} 
+                                className={ingr.id}>x</button>
+                        </li>)}
+                </ul>
+                <PantryForm rePull={initialPull}/>
+                <button>Search For Recipes</button>
+            </div>
+        // </Container>
     )
 }
 

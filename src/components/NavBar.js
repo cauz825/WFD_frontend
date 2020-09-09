@@ -4,7 +4,8 @@ import { Menu, Button } from 'semantic-ui-react'
 export default class NavBar extends Component {
     render() {
             return(
-                <Menu>
+                <Menu inverted>
+                    <Menu.Item header>What's For Dinner</Menu.Item>
                     <a href="/pantry">
                         <Menu.Item className="pantry" name="Pantry">
                         </Menu.Item>
@@ -23,8 +24,7 @@ export default class NavBar extends Component {
                             {localStorage.user_id ? null 
                                 : <Menu.Item className="signin" name="Sign Up">
                                     <Button primary>Sign Up</Button>
-                                </Menu.Item>
-                            }
+                                </Menu.Item>}
                         </a>
                     </Menu.Menu>
                 </Menu>
