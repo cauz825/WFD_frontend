@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { Header, Image, Modal } from 'semantic-ui-react'
+import { Header, Image, Modal, Icon } from 'semantic-ui-react'
 
 function RecipeModal(props) {
 
     const [rec, setRecipe] = useState({})
-
+    const [open, setOpen] = useState(false)
     
     useEffect(() => {
         if(props.open && props.recipe_id)
@@ -20,25 +20,34 @@ function RecipeModal(props) {
     }, [props.open, props.recipe_id])
 
     return(
-        <Modal>
-            {/* onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-            open={props.open}
         
-            <Modal.Header>{rec.name}</Modal.Header>
+        <Modal 
+            open={props.open}
+            closeIcon
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            >
+        
+            <Header content={rec.title}/>
             <Modal.Content image>
                 <Image size='medium' src={rec.image} />
                 <Modal.Description>
-                    <Header>Ingrdients</Header>
-                    <ul>
-                        {rec.extendedIngredients}
+                    <Header>Dietary Restrictions</Header>
+                    <div className="dietary">
+                        Vegetarian: {rec.vegetarian ? <Icon name='thumbs up' /> : <Icon name='thumbs down' />} <br></br>
+                        Vegan: {rec.vegan ? <Icon name='thumbs up' /> : <Icon name='thumbs down' />} <br></br>
+                        Gluten-Free: {rec.glutenFree ? <Icon name='thumbs up' /> : <Icon name='thumbs down' />} <br></br>
+                    </div>
+                    <Header>Ingredients</Header>
+                    <ul className="ingredient list">
+                        {rec.extendedIngredients ? rec.extendedIngredients.map(ingr => <li>{ingr.originalName}</li>) : null}
                     </ul>
                     <Header>Recipe</Header>
-                    {rec.summary}
+                    <ol className="step-by-step">
+                        {rec.analyzedInstructions ? rec.analyzedInstructions[0].steps.map(step => <li>{step.step}</li>) : null}
+                    </ol>
                 </Modal.Description>
-            </Modal.Content> */}
-        <Modal.Header>Test Recipe</Modal.Header>
-        {console.log(rec)}
+            </Modal.Content>
         </Modal>
     )
 

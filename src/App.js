@@ -6,6 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import Login from './components/Login'
 import SignUp from './components/SignUp';
 import HomePage from './components/HomePage';
+import NavBar from './components/NavBar';
 import 'semantic-ui-css/semantic.min.css';
 
 
@@ -23,7 +24,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <h3>NavBar (placeholder)</h3>
+          <NavBar />
             <Route exact path="/" component={HomePage} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />

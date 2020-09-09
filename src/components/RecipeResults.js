@@ -17,7 +17,7 @@ function RecipeResults() {
             })
         })
         .then(resp => resp.json())
-        .then(data => setRecipeResults(data))
+        .then(data => setRecipeResults(data.response))
     }
 
     function openModal(id) {
