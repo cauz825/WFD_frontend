@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import PantryForm from '../components/PantryForm';
 import { List, Grid, Header } from 'semantic-ui-react'
 import PantryImage from '../images/pantry.jpg'
+import '../App.css'
 
 
 function Pantry() {
@@ -31,13 +32,14 @@ function Pantry() {
     }
 
     const pantryContainerStyle = {
-        backgroundColor: 'rgba(160, 160, 160, 0.75)'
+        backgroundColor: 'rgba(160, 160, 160, 0.75)',
+        paddingLeft: 200
     }
     
     return(
-            <div style={pantryStyle}>
+            <div className="background_image" style={pantryStyle}>
                 <Grid columns={2} divided verticalAlign='top' style={pantryContainerStyle}>
-                    <Grid.Column textAlign="center">
+                    <Grid.Column textAlign="left" width={6}>
                         <br></br>
                         <Header as='h2'>Current Pantry</Header>
                         <List>

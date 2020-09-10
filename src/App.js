@@ -8,6 +8,8 @@ import SignUp from './components/SignUp';
 import HomePage from './components/HomePage';
 import NavBar from './components/NavBar';
 import 'semantic-ui-css/semantic.min.css';
+import AboutMe from './components/AboutMe'
+
 
 
 class App extends React.Component {
@@ -30,7 +32,8 @@ class App extends React.Component {
             <Route path="/signup" component={SignUp} />
             <Route path="/pantry" component ={PantryContainer} />
             <Route path="/recipe" component={RecipeContainer} />
-        </div>  
+            <Route path='/aboutme' component={AboutMe} />
+        </div>
       </BrowserRouter>
     )
   }

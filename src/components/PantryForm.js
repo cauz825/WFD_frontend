@@ -33,7 +33,8 @@ function PantryForm(props) {
                <input onChange={handleIngredientName} type="text" placeholder="Ingredient Name" />
                <Button onClick={newIngredient} type="Submit">Add to Inventory</Button>
            </Form>
-           <a href='/recipe'><Button>Search For Recipes</Button></a>
+           <br></br>
+           <a href='/recipe'><Button primary>Search For Recipes</Button></a>
        </div>
         )
 }

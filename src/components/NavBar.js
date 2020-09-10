@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Menu, Button } from 'semantic-ui-react'
+import { Menu, Button, Icon } from 'semantic-ui-react'
 
 export default class NavBar extends Component {
     render() {
             return(
                 <Menu inverted>
                     <a href='/'>
-                        <Menu.Item header>What's For Dinner</Menu.Item>
+                        <Menu.Item header><Icon name="food" /> What's For Dinner</Menu.Item>
                     </a>
                     <a href="/pantry">
                         <Menu.Item className="pantry" name="Pantry">
@@ -16,6 +16,10 @@ export default class NavBar extends Component {
                         <Menu.Item className="recipe" name="Recipes">
                         </Menu.Item>
                     </a>
+                    {/* <a href="/aboutme">
+                        <Menu.Item className="aboutMe" name="About Me">
+                        </Menu.Item>
+                    </a> */}
                     <Menu.Menu position='right'>
                         <a href="/login">
                             <Menu.Item className="login" name={localStorage.user_id ? "Log Out" : "Log In"}>
