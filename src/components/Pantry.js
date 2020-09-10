@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import PantryForm from '../components/PantryForm';
-import { Button, List, Grid, Header } from 'semantic-ui-react'
+import { List, Grid, Header } from 'semantic-ui-react'
+import PantryImage from '../images/pantry.jpg'
 
 
 function Pantry() {
@@ -22,26 +23,38 @@ function Pantry() {
         .then (resp => resp.json())
         .then(data => {initialPull()})
     }
+
+    const pantryStyle = {
+        width: "100%",
+        height: "600px",
+        backgroundImage: `url(${PantryImage})`
+    }
+
+    const pantryContainerStyle = {
+        backgroundColor: 'rgba(160, 160, 160, 0.75)'
+    }
     
     return(
-            <div>
-                <Grid columns={2} divided>
-                    <Grid.Column>
-                        <Header as='h2'>Current Pantry</Header>
-                        <List>
-                            {userPantry.map(ingr => 
-                                <List.Item>
-                                    <Button compact negative size="mini" onClick={deleteIngredient} className={ingr.id}>
-                                        X
-                                    </Button> {ingr.ingredient.name}
-                                </List.Item>)}
-                        </List>
-                    </Grid.Column>
-                    <Grid.Column>
-                        <Header as='h2'>Add Ingredients</Header>
-                        <PantryForm rePull={initialPull}/>
-                    </Grid.Column>
-                </Grid>
+            <div style={pantryStyle}>
+                    <Grid columns={2} divided verticalAlign='top' style={pantryContainerStyle}>
+                        <Grid.Column textAlign="center">
+                            <br></br>
+                            <Header as='h2'>Current Pantry</Header>
+                            <List>
+                                {userPantry.map(ingr => 
+                                    <List.Item>
+                                        <button color="red" onClick={deleteIngredient} className={ingr.id}>
+                                            x
+                                        </button> {ingr.ingredient.name}
+                                    </List.Item>)}
+                            </List>
+                        </Grid.Column>
+                        <Grid.Column textAlign="center">
+                            <br></br>
+                            <Header as='h2'>Add Ingredients</Header>
+                            <PantryForm rePull={initialPull}/>
+                        </Grid.Column>
+                    </Grid>
             </div>
     )
 }

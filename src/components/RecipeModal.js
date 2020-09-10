@@ -31,7 +31,7 @@ function RecipeModal(props) {
 
             <Header content={rec.title}/>
                 <Modal.Content image scrolling>
-                    <Image size='medium' src={rec.image} />
+                    <Image src={rec.image} />
                     <Modal.Description>
                         <Header>Dietary Restrictions</Header>
                         <div className="dietary">
