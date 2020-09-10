@@ -7,14 +7,14 @@ import '../App.css';
 
 function SignUp() {
 
-    const homePageStyle = {
+    const loginPageStyle = {
         // width: "100%",
         // height: "600px",
         backgroundImage: `url(${SteakImage})`
     }
    
     return(
-        <div style={homePageStyle}>
+        <div style={loginPageStyle}>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Form size='large'>

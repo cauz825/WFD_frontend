@@ -10,7 +10,7 @@ function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const homePageStyle = {
+    const loginPageStyle = {
         // width: "100%",
         // height: "600px",
         backgroundImage: `url(${SteakImage})`
@@ -49,7 +49,7 @@ function Login() {
     }
 
     return(
-        <div style={homePageStyle}>
+        <div style={loginPageStyle}>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Form size='large'>

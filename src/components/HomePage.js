@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Header, Button, Segment } from 'semantic-ui-react'
 import TableImage from '../images/food_table.jpg'
-import '../App.css';
+// import '../App.css';
 
 function HomePage() {
 
@@ -13,7 +13,9 @@ function HomePage() {
 
 
     return(
-        <div className="App" style={homePageStyle}>
+        <div 
+        // className="App" 
+        style={homePageStyle}>
         <Segment inverted vertical textAlign="center">
           <Container className="content">
             <Header inverted as="h1">

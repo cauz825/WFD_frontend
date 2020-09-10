@@ -26,7 +26,7 @@ function Pantry() {
 
     const pantryStyle = {
         width: "100%",
-        height: "600px",
+        height: "800px",
         backgroundImage: `url(${PantryImage})`
     }
 
@@ -36,25 +36,25 @@ function Pantry() {
     
     return(
             <div style={pantryStyle}>
-                    <Grid columns={2} divided verticalAlign='top' style={pantryContainerStyle}>
-                        <Grid.Column textAlign="center">
-                            <br></br>
-                            <Header as='h2'>Current Pantry</Header>
-                            <List>
-                                {userPantry.map(ingr => 
-                                    <List.Item>
-                                        <button color="red" onClick={deleteIngredient} className={ingr.id}>
-                                            x
-                                        </button> {ingr.ingredient.name}
-                                    </List.Item>)}
-                            </List>
-                        </Grid.Column>
-                        <Grid.Column textAlign="center">
-                            <br></br>
-                            <Header as='h2'>Add Ingredients</Header>
-                            <PantryForm rePull={initialPull}/>
-                        </Grid.Column>
-                    </Grid>
+                <Grid columns={2} divided verticalAlign='top' style={pantryContainerStyle}>
+                    <Grid.Column textAlign="center">
+                        <br></br>
+                        <Header as='h2'>Current Pantry</Header>
+                        <List>
+                            {userPantry.map(ingr => 
+                                <List.Item>
+                                    <button color="red" onClick={deleteIngredient} className={ingr.id}>
+                                        x
+                                    </button> {ingr.ingredient.name}
+                                </List.Item>)}
+                        </List>
+                    </Grid.Column>
+                    <Grid.Column textAlign="center">
+                        <br></br>
+                        <Header as='h2'>Add Ingredients</Header>
+                        <PantryForm rePull={initialPull}/>
+                    </Grid.Column>
+                </Grid>
             </div>
     )
 }
