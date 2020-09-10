@@ -1,12 +1,16 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import RecipeModal from '../components/RecipeModal'
-import {Button} from 'semantic-ui-react'
+import { Button, Image, Grid, Container } from 'semantic-ui-react'
 
 function RecipeResults() {
 
     const [recipeResults, setRecipeResults] = useState([])
     const [open, setOpen] = useState(false)
     const [recipe_id, setId] = useState("")
+
+    useEffect(() => {
+        searchReceipes()
+    }, [])
         
     function searchReceipes() {
         fetch("http://localhost:3000/recipe_call", {
@@ -26,28 +30,30 @@ function RecipeResults() {
     }
     
     return(
-        <div>
-            <div>
-                <ul>
-                    {recipeResults ? recipeResults.map(recipe => 
-                        <li className={recipe.id}>
-                            <h4>{recipe.title}</h4>
-                            <img src={recipe.image} alt=""></img>
-                            <p>Used Ingredients: {recipe.usedIngredientCount}<br></br>
-                            Missing Ingredients: {recipe.missedIngredientCount}
-                                <ul>
-                                    {recipe.missedIngredients.map(ingr => <li>{ingr.name}</li>)}
-                                </ul>
-                            <Button onClick={() => openModal(recipe.id)}>Show Recipe</Button>
-                            </p>
-                        </li>) : null}
-                    <br></br>
-                        <RecipeModal open={open} recipe_id={recipe_id} />
-                </ul>
-            </div>
-            <Button onClick={searchReceipes}>Search for Recipes</Button>
+        <Container>
             <a href='/pantry'><Button>Back To Pantry</Button></a>
-        </div>
+            <Grid celled>
+                {recipeResults 
+                    ? recipeResults.map(recipe => 
+                        <Grid.Row className={recipe.id}>
+                            <Grid.Column width={3}>
+                                <Image src={recipe.image} alt="" size="large"/>
+                            </Grid.Column>
+                            <Grid.Column width={8}>
+                                <h4>{recipe.title}</h4>
+                                <p>Used Ingredients: {recipe.usedIngredientCount}<br></br>
+                                Missing Ingredients: {recipe.missedIngredientCount}
+                                    <ul>
+                                        {recipe.missedIngredients.map(ingr => <li>{ingr.name}</li>)}
+                                    </ul>
+                                <Button onClick={() => openModal(recipe.id)}>Show Recipe</Button>
+                                </p>
+                            </Grid.Column>
+                        </Grid.Row>)
+                    : null}
+                    <RecipeModal open={open} recipe_id={recipe_id} />
+            </Grid>
+        </Container>
     )
 }
 

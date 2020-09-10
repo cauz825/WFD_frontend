@@ -28,12 +28,14 @@ function PantryForm(props) {
     }
     
     return(
-        <Form onSubmit={afterSubmit}>
-            <input onChange={handleIngredientName} type="text" placeholder="Ingredient Name" />
-            <Button onClick={newIngredient} type="Submit">Add to Inventory</Button>
-            <a href='/recipe'><Button>Search For Recipes</Button></a>
-        </Form>
-    )
+       <div>
+           <Form onSubmit={afterSubmit}>
+               <input onChange={handleIngredientName} type="text" placeholder="Ingredient Name" />
+               <Button onClick={newIngredient} type="Submit">Add to Inventory</Button>
+           </Form>
+           <a href='/recipe'><Button>Search For Recipes</Button></a>
+       </div>
+        )
 }
 
 export default PantryForm;

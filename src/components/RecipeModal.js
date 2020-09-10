@@ -7,7 +7,7 @@ function RecipeModal(props) {
     const [open, setOpen] = useState(false)
     
     useEffect(() => {
-        if(props.open && props.recipe_id)
+        if(props.recipe_id && props.open)
             {fetch("http://localhost:3000/recipe_detail", {
                 method: "POST",
                 headers:{"Content-Type":"application/json"},
@@ -16,48 +16,53 @@ function RecipeModal(props) {
                 })
             })
             .then(resp => resp.json())
-            .then(data => setRecipe(data))}
+            .then(data => {
+                setRecipe(data)
+                setOpen(true)}
+            )}
     }, [props.open, props.recipe_id])
 
     return(
-        
         <Modal 
-            open={props.open}
+            open={open}
             closeIcon
             onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-            >
-        
+            onOpen={() => setOpen(true)}>
+
             <Header content={rec.title}/>
-            <Modal.Content image scrolling>
-                <Image size='medium' src={rec.image} />
-                <Modal.Description>
-                    <Header>Dietary Restrictions</Header>
-                    <div className="dietary">
-                        Vegetarian: {rec.vegetarian ? <Icon name='thumbs up' /> : <Icon name='thumbs down' />}
-                        Vegan: {rec.vegan ? <Icon name='thumbs up' /> : <Icon name='thumbs down' />}
-                        Gluten-Free: {rec.glutenFree ? <Icon name='thumbs up' /> : <Icon name='thumbs down' />}
-                    </div>
-                    <Header>Ingredients</Header>
-                    <div>
-                        <ul className="ingredient-list">
-                            {rec.extendedIngredients ? rec.extendedIngredients.map(ingr => <li>{ingr.originalName}</li>) : null}
-                        </ul>
-                    </div>
-                    <Header>Recipe</Header>
-                    <div>
-                        <ol className="step-by-step">
-                            {rec.analyzedInstructions ? rec.analyzedInstructions[0].steps.map(step => <li>{step.step}</li>) : <p>No instructions available for this recipe</p>}
-                        </ol>
-                    </div>
-                    <Header>Wine Pairing</Header>
-                        <div>
-                            {rec.winePairing
-                                ? <p>{rec.winePairing.pairingText}</p>
-                                : <p>No wine pairing available for this dish</p>}
+                <Modal.Content image scrolling>
+                    <Image size='medium' src={rec.image} />
+                    <Modal.Description>
+                        <Header>Dietary Restrictions</Header>
+                        <div className="dietary">
+                            Vegetarian: {rec.vegetarian ? <Icon name='check' /> : <Icon name='x' />}
+                            Vegan: {rec.vegan ? <Icon name='check' /> : <Icon name='x' />}
+                            Gluten-Free: {rec.glutenFree ? <Icon name='check' /> : <Icon name='x' />}
                         </div>
-                </Modal.Description>
-            </Modal.Content>
+                        <Header>Ingredients</Header>
+                        <div>
+                            <ul className="ingredient-list">
+                                {rec.extendedIngredients ? rec.extendedIngredients.map(ingr => <li>{ingr.originalName}</li>) : null}
+                            </ul>
+                        </div>
+                        <Header>Recipe</Header>
+                        <div>
+                            <ol className="step-by-step">
+                                {rec.analyzedInstructions && rec.analyzedInstructions.length > 0
+                                ? rec.analyzedInstructions[0].steps.map(step => <li>{step.step}</li>) 
+                                : <p>No instructions available for this recipe</p>}
+                            </ol>
+                        </div>
+                        <Header>Wine Pairing</Header>
+                            <div>
+                                {rec.winePairing && rec.winePairing.length > 0
+                                    ? <p>{rec.winePairing.pairingText}</p>
+                                    : <p>No wine pairing available for this dish</p>}
+                                <br></br>
+                                <br></br>
+                            </div>
+                    </Modal.Description>
+                </Modal.Content>
         </Modal>
     )
 

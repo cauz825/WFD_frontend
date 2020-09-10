@@ -31,9 +31,9 @@ function Pantry() {
                         <List>
                             {userPantry.map(ingr => 
                                 <List.Item>
-                                    {ingr.ingredient.name}<button 
-                                        onClick={deleteIngredient} 
-                                        className={ingr.id}>x</button>
+                                    <Button compact negative size="mini" onClick={deleteIngredient} className={ingr.id}>
+                                        X
+                                    </Button> {ingr.ingredient.name}
                                 </List.Item>)}
                         </List>
                     </Grid.Column>
